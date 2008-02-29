@@ -1,0 +1,65 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=2173
+
+Overview
+--------
+Open file with file prefix 'head:','tail:',
+vim editor read file 10 rows from top, or bottom.
+(for example, head:sample.pl, tail:somedir/app.conf)
+
+command example,
+  - Windows
+  (within vim)  : :e head;TEST.txt
+                : :e tail;TEST.txt
+
+  - Mac OSX, Unix, Liux
+  (command line): vim head:TEST.txt
+                : vim tail:TEST.txt
+
+  (within vim)  : :e head:TEST.txt
+                : :e tail:TEST.txt
+
+
+Installation
+------------
+1. Copy the head.vim script to the $HOME/.vim/plugin or
+   the $HOME/vimfiles/plugin. Refer to the ':help add-plugin',
+   ':help add-global-plugin' and ':help runtimepath' topics for
+   more details about Vim plugins.
+2. Restart Vim.
+
+
+Usage
+-----
+(Windows)
+:e head;TEST.TXT  |  display 'TEST.TXT' head. (default 10 rows read.)
+:r head;TEST.TXT  |  read 'TEST.TXT' head, and insert at cursor position. (default 10 rows read.)
+:w head;TEST.TXT  |  update 'TEST.TXT' head with current buffer. (default 10 rows replaced.)
+
+:e tail;TEST.TXT  |  display 'TEST.TXT' tail. (default 10 rows read.)
+:r tail;TEST.TXT  |  read 'TEST.TXT' tail, and insert at cursor position. (default 10 rows read.)
+:w tail;TEST.TXT  |  update 'TEST.TXT' tail with current buffer. (default 10 rows replaced.)
+
+(OSX, Unix, Linux)
+:e head:TEST.TXT  |  display 'TEST.TXT' head. (default 10 rows read.)
+:r head:TEST.TXT  |  read 'TEST.TXT' head, and insert at cursor position. (default 10 rows read.)
+:w head:TEST.TXT  |  update 'TEST.TXT' head with current buffer. (default 10 rows replaced.)
+
+:e tail:TEST.TXT  |  display 'TEST.TXT' tail. (default 10 rows read.)
+:r tail:TEST.TXT  |  read 'TEST.TXT' tail, and insert at cursor position. (default 10 rows read.)
+:w tail:TEST.TXT  |  update 'TEST.TXT' tail with current buffer. (default 10 rows replaced.)
+
+
+Plugin Options
+--------------
+g:head_display_lines
+  customize number of lines of file reading.
+  below is setting example.
+
+      :let g:head_display_lines = 30
+
+  you will update this parameter by command 'Head',
+  for example,
+
+      :Head 30
+
+
